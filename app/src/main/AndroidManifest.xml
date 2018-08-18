@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.upays">
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity android:name=".Activity.Splashscreen">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".Activity.Login"
+            android:configChanges="keyboard|keyboardHidden|screenLayout|screenSize|orientation"
+            android:windowSoftInputMode="adjustPan" />
+        <activity android:name=".Activity.Home" />
+        <activity android:name=".Activity.Profile" />
+        <activity android:name=".Activity.Become_A_Partner" />
+        <activity android:name=".Activity.FAQ" />
+        <activity android:name=".Activity.Free_Rides" />
+        <activity android:name=".Activity.Insurance" />
+        <activity android:name=".Activity.MyWallet" />
+        <activity android:name=".Activity.Notification_s" />
+        <activity android:name=".Activity.Payments" />
+        <activity android:name=".Activity.Settings_act" />
+        <activity android:name=".Activity.Support" />
+        <activity android:name=".Activity.Your_Rides" />
+        <activity android:name=".Activity.Social_Media"></activity>
+        <activity android:name=".Activity.Your_Trip"></activity>
+        <activity android:name=".Activity.Document_upload"></activity>
+        <activity android:name=".Activity.Qualification_certificate"></activity>
+        <activity android:name=".Activity.Bank_Details"></activity>
+        <activity android:name=".Activity.Driver_vehicle_Details"></activity>
+    </application>
+
+</manifest>
