@@ -1,6 +1,7 @@
 package com.upays.Activity;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.support.v4.widget.DrawerLayout;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -22,11 +23,12 @@ public class Home extends Activity {
     ImageView drawable_img;
     DrawerLayout home;
     LinearLayout myll;
-    TextView header_tv;
+    TextView header_tv,tap_txt;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.home);
+        tap_txt = (TextView) findViewById(R.id.tap_txt);
         header_tv = (TextView) findViewById(R.id.header_tv);
         header_tv.setText("Dashboard");
         home = (DrawerLayout) findViewById(R.id.home);
@@ -46,6 +48,13 @@ public class Home extends Activity {
             @Override
             public void onClick(View view) {
                 home.openDrawer(myll);
+            }
+        });
+        tap_txt.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent map = new Intent(Home.this,MapsActivity.class);
+                startActivity(map);
             }
         });
 

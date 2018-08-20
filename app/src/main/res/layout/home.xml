@@ -15,10 +15,16 @@
     </LinearLayout>
 
     <TextView
+        android:id="@+id/tap_txt"
+        android:textStyle="bold"
+        android:textSize="20dp"
+        android:textColor="@color/black"
+        android:layout_marginTop="50dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:text="welcome" />
+        android:text="Tap to start functionality here we need to place
+the other service...icons" />
 
     <LinearLayout
         android:id="@+id/myll"

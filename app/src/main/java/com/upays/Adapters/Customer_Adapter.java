@@ -19,6 +19,7 @@ import com.upays.Activity.Free_Rides;
 import com.upays.Activity.Home;
 import com.upays.Activity.Insurance;
 import com.upays.Activity.Login;
+import com.upays.Activity.MapsActivity;
 import com.upays.Activity.MyWallet;
 import com.upays.Activity.Notification_s;
 import com.upays.Activity.Payments;
@@ -122,7 +123,7 @@ public class Customer_Adapter extends RecyclerView.Adapter<Customer_Adapter.Hold
                         context.startActivity(ut);
                         break;
                     case "Logout":
-                        Intent Logout = new Intent(context, Login.class);
+                        Intent Logout = new Intent(context, MapsActivity.class);
                         //  Logout.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                         context.startActivity(Logout);
                         ((Activity) context).finish();
