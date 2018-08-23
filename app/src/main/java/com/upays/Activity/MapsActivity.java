@@ -315,7 +315,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
                 Toast.makeText(getBaseContext(), "All Location Settings are satisfied herer The client can initialize", Toast.LENGTH_SHORT).show();
                 Location myLocation = getLastKnownLocation();
-                 System.out.println("latitude "+myLocation.getLatitude()+"  LOngitude "+myLocation.getLongitude());
+               //  System.out.println("latitude "+myLocation.getLatitude()+"  LOngitude "+myLocation.getLongitude());
                 LatLng sydney = new LatLng(myLocation.getLatitude(), myLocation.getLongitude());
 
 
@@ -395,9 +395,9 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         String xx = String.valueOf(requestCode);
         String yy = String.valueOf(resultCode);
         //  Toast.makeText(getBaseContext(), "REquest code :" + xx + "  request res : " + yy, Toast.LENGTH_SHORT).show();
-        if (resultCode == 0) {
+       // if (resultCode == 0) {
             createLocationRequest();
-        }
+        //}
     }
 
     private Location getLastKnownLocation() {

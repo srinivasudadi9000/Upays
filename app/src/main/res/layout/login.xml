@@ -48,7 +48,8 @@
                     android:drawableRight="@drawable/mobile"
                     android:hint="Phone Number"
                     android:imeOptions="actionDone"
-                    android:inputType="textCapSentences"
+                    android:inputType="number"
+                    android:maxLength="10"
                     android:paddingLeft="10dp"
                     android:textColor="@color/black"
                     android:textColorHint="@color/green" />
@@ -67,14 +68,15 @@
                 android:visibility="visible">
 
                 <EditText
-                    android:id="@+id/input_password"
+                    android:maxLength="6"
+                    android:id="@+id/otp_et"
                     android:layout_width="match_parent"
                     android:layout_height="45dp"
                     android:background="@drawable/border"
                     android:drawableRight="@drawable/password"
                     android:hint="OTP"
                     android:imeOptions="actionDone"
-                    android:inputType="textPassword"
+                    android:inputType="number"
                     android:paddingLeft="10dp"
                     android:textColor="@color/green"
                     android:textColorHint="@color/green" />
