@@ -217,7 +217,7 @@ public class Login extends Activity implements View.OnClickListener {
             public void onClick(View v) {
                 if (status.equals("yes")) {
                     dialog.dismiss();
-                    Intent home = new Intent(Login.this, Home.class);
+                    Intent home = new Intent(Login.this, Customer_map.class);
                     startActivity(home);
                     finish();
                 } else {

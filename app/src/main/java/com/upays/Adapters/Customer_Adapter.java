@@ -1,7 +1,6 @@
 package com.upays.Adapters;
 
 import android.app.Activity;
-import android.app.Notification;
 import android.content.Context;
 import android.content.Intent;
 import android.support.v7.widget.CardView;
@@ -10,15 +9,12 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.upays.Activity.Become_A_Partner;
 import com.upays.Activity.FAQ;
 import com.upays.Activity.Free_Rides;
-import com.upays.Activity.Home;
 import com.upays.Activity.Insurance;
-import com.upays.Activity.Login;
 import com.upays.Activity.MapsActivity;
 import com.upays.Activity.MyWallet;
 import com.upays.Activity.Notification_s;
@@ -28,6 +24,7 @@ import com.upays.Activity.Settings_act;
 import com.upays.Activity.Support;
 import com.upays.Activity.Your_Rides;
 import com.upays.Activity.Your_Trip;
+import com.upays.Activity.Customer_map;
 import com.upays.Models.Home_m;
 import com.upays.R;
 
@@ -42,11 +39,20 @@ public class Customer_Adapter extends RecyclerView.Adapter<Customer_Adapter.Hold
     int rootlayout;
     Context context;
 
-    public Customer_Adapter(ArrayList<Home_m> addhome, int root_pol, Home home) {
-        this.home_ms = addhome;
-        this.rootlayout = root_pol;
-        this.context = home;
+    public Customer_Adapter(ArrayList<Home_m> addpartner, int menu_single, Customer_map customer_map) {
+        this.home_ms = addpartner;
+        this.rootlayout = menu_single;
+        this.context = customer_map;
     }
+
+    /*
+        public Customer_Adapter(ArrayList<Home_m> addhome, int root_pol, Home home) {
+            this.home_ms = addhome;
+            this.rootlayout = root_pol;
+            this.context = home;
+        }
+    */
+
 
     @Override
     public Holder onCreateViewHolder(ViewGroup parent, int viewType) {

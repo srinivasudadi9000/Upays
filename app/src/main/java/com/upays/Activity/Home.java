@@ -23,7 +23,8 @@ public class Home extends Activity {
     ImageView drawable_img;
     DrawerLayout home;
     LinearLayout myll;
-    TextView header_tv,tap_txt;
+    TextView header_tv, tap_txt;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,11 +39,11 @@ public class Home extends Activity {
         drawable_img.setImageDrawable(getResources().getDrawable(R.drawable.menu_img));
         home_survey.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
 
-       // if (getIntent().getStringExtra("type").equals("Customer")){
-          //  home_survey.setAdapter(new Customer_Adapter(addhome(), R.layout.menu_single, this));
-       // }else {
-            home_survey.setAdapter(new Customer_Adapter(addpartner(), R.layout.menu_single, this));
-       // }
+        // if (getIntent().getStringExtra("type").equals("Customer")){
+        //  home_survey.setAdapter(new Customer_Adapter(addhome(), R.layout.menu_single, this));
+        // }else {
+        //  home_survey.setAdapter(new Customer_Adapter(addpartner(), R.layout.menu_single, this));
+        // }
 
         drawable_img.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -53,7 +54,7 @@ public class Home extends Activity {
         tap_txt.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent map = new Intent(Home.this,MapsActivity.class);
+                Intent map = new Intent(Home.this, MapsActivity.class);
                 startActivity(map);
             }
         });
@@ -89,6 +90,7 @@ public class Home extends Activity {
         home_ms.add(new Home_m("Logout"));
         return home_ms;
     }
+
     public ArrayList<Home_m> addpartner() {
         home_ms = new ArrayList<Home_m>();
       /*  home_ms.add(new Home_m(R.drawable.events, "Events"));
