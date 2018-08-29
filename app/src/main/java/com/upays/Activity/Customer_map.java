@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
 import android.support.v4.widget.DrawerLayout;
+import android.support.v7.widget.CardView;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
@@ -27,7 +28,7 @@ import com.upays.R;
 
 import java.util.ArrayList;
 
-public class Customer_map extends FragmentActivity implements OnMapReadyCallback {
+public class Customer_map extends FragmentActivity implements OnMapReadyCallback, View.OnClickListener {
     RecyclerView survey_recycle, home_survey;
     ArrayList<Home_m> home_ms;
     ImageView drawable_img;
@@ -36,6 +37,7 @@ public class Customer_map extends FragmentActivity implements OnMapReadyCallback
     TextView header_tv, tap_txt;
 
     private GoogleMap mMap;
+    CardView bike_card, car_card, taxi_card, van_card;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,6 +48,15 @@ public class Customer_map extends FragmentActivity implements OnMapReadyCallback
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
 
+        bike_card = (CardView) findViewById(R.id.bike_card);
+        car_card = (CardView) findViewById(R.id.car_card);
+        taxi_card = (CardView) findViewById(R.id.taxi_card);
+        van_card = (CardView) findViewById(R.id.van_card);
+
+        bike_card.setOnClickListener(this);
+        car_card.setOnClickListener(this);
+        taxi_card.setOnClickListener(this);
+        van_card.setOnClickListener(this);
 
         tap_txt = (TextView) findViewById(R.id.tap_txt);
         header_tv = (TextView) findViewById(R.id.header_tv);
@@ -84,37 +95,10 @@ public class Customer_map extends FragmentActivity implements OnMapReadyCallback
         mMap = googleMap;
         // Add a marker in Sydney and move the camera
 
-        ///   mMap.addMarker(new MarkerOptions().position(sydney).title("Marker in Sydney"));
-
-      /*  LatLng s = new LatLng(-34, 151);
-        mMap.addMarker(new MarkerOptions().position(sydney)
-                .flat(true)
-                .icon(BitmapDescriptorFactory.fromResource(R.drawable.car)));*/
+        LatLng sydney = new LatLng(17.6868, 83.2185);
+        mMap.addMarker(new MarkerOptions().position(sydney).title("Marker in Sydney"));
 
 
-        ArrayList<Markers> markersArray = new ArrayList<Markers>();
-        markersArray.add(new Markers(17.7006298, 83.2443407));
-        markersArray.add(new Markers(17.7106052,83.2143));
-        markersArray.add(new Markers(17.7439138, 83.3530102));
-        markersArray.add(new Markers(17.7439138, 83.3630102));
-        markersArray.add(new Markers(17.7439138, 83.3830102));
-        markersArray.add(new Markers(17.7439138, 83.2830102));
-        markersArray.add(new Markers(17.7541954,83.2522687));
-        markersArray.add(new Markers(17.7471215, 83.0617903));
-        markersArray.add(new Markers(17.7464287, 83.0235876));
-        for (int i = 0; i < markersArray.size(); i++) {
-            // createMarker(markersArray.get(i).getLat(), markersArray.get(i).getLongi(), markersArray.get(i).getTitle(), markersArray.get(i).getSnippet(), markersArray.get(i).getIconResID());
-            //  createMarker(markersArray.get(i).getLat(), markersArray.get(i).getLongi());
-            LatLng sydney = new LatLng(markersArray.get(i).getLat(), markersArray.get(i).getLongi());
-            mMap.addMarker(new MarkerOptions().position(sydney)
-                    .flat(true)
-                    .icon(BitmapDescriptorFactory.fromResource(R.drawable.car)));
-
-        }
-        LatLng sydney = new LatLng(17.7266708, 83.2989934);
-        mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
-        CameraUpdate zoom=CameraUpdateFactory.zoomTo(12);
-        mMap.animateCamera(zoom);
 
     }
 
@@ -147,4 +131,113 @@ public class Customer_map extends FragmentActivity implements OnMapReadyCallback
         return home_ms;
     }
 
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()) {
+            case R.id.bike_card:
+                mMap.clear();
+                ArrayList<Markers> markersArray = new ArrayList<Markers>();
+                markersArray.add(new Markers(17.7006298, 83.2443407));
+                markersArray.add(new Markers(17.7106052, 83.2143));
+                markersArray.add(new Markers(17.7439138, 83.3530102));
+                markersArray.add(new Markers(17.7439138, 83.3630102));
+                markersArray.add(new Markers(17.7439138, 83.3830102));
+                markersArray.add(new Markers(17.7439138, 83.2830102));
+                markersArray.add(new Markers(17.7541954, 83.2522687));
+                markersArray.add(new Markers(17.7471215, 83.0617903));
+                markersArray.add(new Markers(17.7464287, 83.0235876));
+                for (int i = 0; i < markersArray.size(); i++) {
+                    // createMarker(markersArray.get(i).getLat(), markersArray.get(i).getLongi(), markersArray.get(i).getTitle(), markersArray.get(i).getSnippet(), markersArray.get(i).getIconResID());
+                    //  createMarker(markersArray.get(i).getLat(), markersArray.get(i).getLongi());
+                    LatLng sydney = new LatLng(markersArray.get(i).getLat(), markersArray.get(i).getLongi());
+                    mMap.addMarker(new MarkerOptions().position(sydney)
+                            .flat(true)
+                            .icon(BitmapDescriptorFactory.fromResource(R.drawable.bike_map)));
+
+                }
+                LatLng sydney = new LatLng(17.7266708, 83.2989934);
+                mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
+                CameraUpdate zoom = CameraUpdateFactory.zoomTo(12);
+                mMap.animateCamera(zoom);
+                break;
+            case R.id.car_card:
+                mMap.clear();
+                ArrayList<Markers> markersArray1 = new ArrayList<Markers>();
+                markersArray1.add(new Markers(17.7006298, 83.2443407));
+                markersArray1.add(new Markers(17.7106052, 83.2143));
+                markersArray1.add(new Markers(17.7439138, 83.3530102));
+                markersArray1.add(new Markers(17.7439138, 83.3630102));
+                markersArray1.add(new Markers(17.7439138, 83.3830102));
+                markersArray1.add(new Markers(17.7439138, 83.2830102));
+                markersArray1.add(new Markers(17.7541954, 83.2522687));
+                markersArray1.add(new Markers(17.7471215, 83.0617903));
+                markersArray1.add(new Markers(17.7464287, 83.0235876));
+                for (int i = 0; i < markersArray1.size(); i++) {
+                    // createMarker(markersArray.get(i).getLat(), markersArray.get(i).getLongi(), markersArray.get(i).getTitle(), markersArray.get(i).getSnippet(), markersArray.get(i).getIconResID());
+                    //  createMarker(markersArray.get(i).getLat(), markersArray.get(i).getLongi());
+                    LatLng sydney1 = new LatLng(markersArray1.get(i).getLat(), markersArray1.get(i).getLongi());
+                    mMap.addMarker(new MarkerOptions().position(sydney1)
+                            .flat(true)
+                            .icon(BitmapDescriptorFactory.fromResource(R.drawable.car)));
+
+                }
+                LatLng sydney1 = new LatLng(17.7266708, 83.2989934);
+                mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney1));
+                CameraUpdate zoom1 = CameraUpdateFactory.zoomTo(12);
+                mMap.animateCamera(zoom1);
+                break;
+            case R.id.taxi_card:
+                mMap.clear();
+                ArrayList<Markers> markersArray2 = new ArrayList<Markers>();
+                markersArray2.add(new Markers(17.7006298, 83.2443407));
+                markersArray2.add(new Markers(17.7106052, 83.2143));
+                markersArray2.add(new Markers(17.7439138, 83.3530102));
+                markersArray2.add(new Markers(17.7439138, 83.3630102));
+                markersArray2.add(new Markers(17.7439138, 83.3830102));
+                markersArray2.add(new Markers(17.7439138, 83.2830102));
+                markersArray2.add(new Markers(17.7541954, 83.2522687));
+                markersArray2.add(new Markers(17.7471215, 83.0617903));
+                markersArray2.add(new Markers(17.7464287, 83.0235876));
+                for (int i = 0; i < markersArray2.size(); i++) {
+                    // createMarker(markersArray2.get(i).getLat(), markersArray2.get(i).getLongi(), markersArray2.get(i).getTitle(), markersArray2.get(i).getSnippet(), markersArray2.get(i).getIconResID());
+                    //  createMarker(markersArray2.get(i).getLat(), markersArray2.get(i).getLongi());
+                    LatLng sydney2 = new LatLng(markersArray2.get(i).getLat(), markersArray2.get(i).getLongi());
+                    mMap.addMarker(new MarkerOptions().position(sydney2)
+                            .flat(true)
+                            .icon(BitmapDescriptorFactory.fromResource(R.drawable.taxi_map)));
+
+                }
+                LatLng sydney2 = new LatLng(17.7266708, 83.2989934);
+                mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney2));
+                CameraUpdate zoom2 = CameraUpdateFactory.zoomTo(12);
+                mMap.animateCamera(zoom2);
+                break;
+            case R.id.van_card:
+                mMap.clear();
+                ArrayList<Markers> markersArray3 = new ArrayList<Markers>();
+                markersArray3.add(new Markers(17.7006298, 83.2443407));
+                markersArray3.add(new Markers(17.7106052, 83.2143));
+                markersArray3.add(new Markers(17.7439138, 83.3530102));
+                markersArray3.add(new Markers(17.7439138, 83.3630102));
+                markersArray3.add(new Markers(17.7439138, 83.3830102));
+                markersArray3.add(new Markers(17.7439138, 83.2830102));
+                markersArray3.add(new Markers(17.7541954, 83.2522687));
+                markersArray3.add(new Markers(17.7471215, 83.0617903));
+                markersArray3.add(new Markers(17.7464287, 83.0235876));
+                for (int i = 0; i < markersArray3.size(); i++) {
+                    // createMarker(markersArray3.get(i).getLat(), markersArray3.get(i).getLongi(), markersArray3.get(i).getTitle(), markersArray3.get(i).getSnippet(), markersArray3.get(i).getIconResID());
+                    //  createMarker(markersArray3.get(i).getLat(), markersArray3.get(i).getLongi());
+                    LatLng sydney3 = new LatLng(markersArray3.get(i).getLat(), markersArray3.get(i).getLongi());
+                    mMap.addMarker(new MarkerOptions().position(sydney3)
+                            .flat(true)
+                            .icon(BitmapDescriptorFactory.fromResource(R.drawable.van_map)));
+
+                }
+                LatLng sydney3 = new LatLng(17.7266708, 83.2989934);
+                mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney3));
+                CameraUpdate zoom3 = CameraUpdateFactory.zoomTo(12);
+                mMap.animateCamera(zoom3);
+                break;
+        }
+    }
 }
